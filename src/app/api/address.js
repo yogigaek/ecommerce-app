@@ -1,13 +1,13 @@
 import { get, post } from './request-manager'
 
 export const getAddress = async () => {
-  return await get(`https://api.muhammadyogi.website/api/shipping-address`)
+  return await get(`https://server.muhammadyogi.website/api/shipping-address`)
 }
 
 export const getLocation = async (location, code) => {
-  return await get(`https://regions-indoneisa.herokuapp.com/api/${location}?kode_induk=${code}`);
+  return await get(`https://regions-indonesia.herokuapp.com/api/${location}?kode_induk=${code}`);
 }
 
 export const createAddress = async data => {
-  return await post(`https://api.muhammadyogi.website/api/shipping-address`, data)
+  return await post(`https://server.muhammadyogi.website/api/shipping-address`, data)
 }

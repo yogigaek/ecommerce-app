@@ -9,7 +9,7 @@ const Cart = ({cart}) => {
 			{
 				cart.length > 0
 				?	<Cards cart={cart}/>
-				: <EmptyCart>There is no food here!</EmptyCart>
+				: <EmptyCart>There is no product here!</EmptyCart>
 			}
 		</Wrapper>
 	)

@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 0 1em 0;
-  padding-top: px;
   background-color: #fff;
   border-radius: 1em;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
@@ -32,7 +31,7 @@ export const Image = styled.div`
 export const Title = styled.h1`
   max-width: 100%;
   text-align: center;
-  margin: 8px auto 0;
+  margin: auto 0;
   font-size: 0.84rem;
   white-space: nowrap;
   overflow: hidden;
@@ -40,6 +39,6 @@ export const Title = styled.h1`
 `;
 
 export const PriceTag = styled.h5`
-  margin: 2px auto 0;
+  margin: 1px auto 0;
   color: #f07613;
 `;

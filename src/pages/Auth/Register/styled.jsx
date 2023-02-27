@@ -28,6 +28,27 @@ export const Field = styled.input`
 	outline: none;
 	border-radius: 1em;
 `
+export const FieldWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Icon = styled.span`
+  position: absolute;
+  margin-left: 10em;
+  top: calc(50% - 0em);
+  cursor: pointer;
+`;
+
+export const Icon1 = styled.span`
+  position: absolute;
+  margin-left: 10em;
+  top: calc(61% - 0em);
+  cursor: pointer;
+`;
+
 export const Feedback = styled.p`
 	font-size: .8rem;
 	margin: 0 auto 0 2em;

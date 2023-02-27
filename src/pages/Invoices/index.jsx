@@ -32,7 +32,7 @@ const Invoices = () => {
 							</Card>
 							<Card>
 								<Name>Total Amount</Name>
-								<Detail>${(Math.round(invoice.total * 100) / 100).toFixed(2)}</Detail>
+								<Detail>Rp.{(Math.round(invoice.total * 100) / 100).toFixed(2)}</Detail>
 							</Card>
 							<Card>
 								<Name>Billed to</Name>

@@ -48,7 +48,7 @@ const Checkout = () => {
     setStatus(statusList.process);
     let payload = {
       shipping_address: selectedAddress,
-      shipping_fee: 5,
+      shipping_fee: 2000,
     };
 
     const { data } = await createOrder(payload);
@@ -89,12 +89,15 @@ const Checkout = () => {
           <Counter>
             <Name>Subtotal</Name>
             <Detail>
-              ${(Math.round(sumPrice(cart) * 100) / 100).toFixed(2)}
+              {new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+              }).format((Math.round(sumPrice(cart) * 100) / 100))}
             </Detail>
           </Counter>
           <Counter>
             <Name>Shipping Fee</Name>
-            <Detail>$5.00</Detail>
+            <Detail>Rp 20.000,00</Detail>
           </Counter>
           <Counter>
             <Name>
@@ -102,10 +105,12 @@ const Checkout = () => {
             </Name>
             <Detail>
               <strong>
-                $
-                {parseFloat(
-                  (Math.round(sumPrice(cart) * 100) / 100).toFixed(2)
-                ) + parseFloat(5)}
+                {new Intl.NumberFormat('id-ID', {
+                  style: 'currency',
+                  currency: 'IDR'
+                }).format(
+                  (Math.round(sumPrice(cart) * 100) / 100) + 20000
+                )}
               </strong>
             </Detail>
           </Counter>

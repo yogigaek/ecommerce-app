@@ -14,11 +14,18 @@ const Card = ({ item }) => {
 		dispatch(removeItem(item));
 	}
 
+	const totalPrice = (Math.round((item.price * item.qty) * 100) / 100).toLocaleString('id-ID', {
+		style: 'currency',
+		currency: 'IDR',
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2
+	  });
+
 	return (
 		<Wrapper>
 			<Container>
 				<Image>
-					<img src={`https://api.muhammadyogi.website/images/products/${item.image_url}`} alt="Gambar" width="100%" />
+					<img src={`https://server.muhammadyogi.website/images/products/${item.image_url}`} alt="Gambar" width="100%" />
 				</Image>
 				<Title>{item.name}</Title>
 			</Container>
@@ -31,7 +38,7 @@ const Card = ({ item }) => {
 				<Num>{item.qty}</Num>
 				<Button onClick={() => handlePlus(item)}>+</Button>
 			</Counter>
-			<Price>${(Math.round((item.price * item.qty) * 100) / 100).toFixed(2)}</Price>
+			<Price>{totalPrice}</Price>
 		</Wrapper>
 	)
 }

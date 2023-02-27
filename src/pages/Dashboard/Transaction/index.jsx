@@ -33,7 +33,7 @@ const Transaction = () => {
 									</Card>
 									<Card>
 										<Detail>{ item.order_number }</Detail>
-										<Detail>${ (Math.round((sumPrice(item.order_items) + item.shipping_fee) * 100) / 100 ).toFixed(2) }</Detail>
+										<Detail>Rp.{ (Math.round((sumPrice(item.order_items) + item.shipping_fee) * 100) / 100 ).toFixed(2) }</Detail>
 										<Detail>{ item.status }</Detail>
 										<Detail>
 											<Button onClick={() => navigate(`/invoices/${item._id}`)}>Detail</Button>
@@ -50,7 +50,7 @@ const Transaction = () => {
 												<Card key={i}>
 													<Detail>{ item.name }</Detail>
 													<Detail>{ item.qty }</Detail>
-													<Detail>${ item.price * item.qty }</Detail>
+													<Detail>Rp.{ item.price * item.qty }</Detail>
 												</Card>
 											)
 										})

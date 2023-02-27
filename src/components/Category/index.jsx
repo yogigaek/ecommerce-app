@@ -7,7 +7,7 @@ const Category = ({ items, onClick }) => {
   return (
     <Wrapper>
       <Active onClick={() => onClick("")} menuBg={products.category === ""}>
-        All Menu
+        All Product
       </Active>
       {items.length > 0
         ? items.map((item, i) => (
