@@ -1,7 +1,7 @@
 {
   "name": "yogi-client",
   "version": "0.1.0",
-  "homepage": "https://client.muhammadyogi.website/",
+  "homepage": "https://store.muhammadyogi.website/",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.8.10",

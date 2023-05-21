@@ -9,20 +9,21 @@ const Category = ({ items, onClick }) => {
       <Active onClick={() => onClick("")} menuBg={products.category === ""}>
         All Product
       </Active>
-      {items.length > 0
-        ? items.map((item, i) => (
-            <Button
-              key={i}
-              bg={products.category.includes(item.name)}
-              onClick={() => onClick(item.name)}
-            >
-              {" "}
-              {item.name}
-            </Button>
-          ))
-        : Array.from({ length: 5 }).map((_, idx) => (
-            <ButtonPlaceholder key={idx} disabled />
-          ))}
+      {items && items.length > 0 ? (
+        items.map((item, i) => (
+          <Button
+            key={i}
+            bg={products.category && products.category.includes(item.name)}
+            onClick={() => onClick(item.name)}
+          >
+            {item.name}
+          </Button>
+        ))
+      ) : (
+        Array.from({ length: 5 }).map((_, idx) => (
+          <ButtonPlaceholder key={idx} disabled />
+        ))
+      )}
     </Wrapper>
   );
 };

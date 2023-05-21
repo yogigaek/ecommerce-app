@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { keyframes } from 'styled-components'
 import styled from 'styled-components'
 import { SettingsOutline } from '@styled-icons/evaicons-outline'
 import { User } from '@styled-icons/boxicons-regular'
@@ -38,26 +39,34 @@ export const Container = styled.div`
   }
 `
 
+const fadeIn = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`
+
 export const DateNow = styled.p`
-  color: var(--color-white);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif; 
+  letter-spacing: 0.05em; 
+  padding: 0 2em;
+  margin: 0.5em 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 2.5em;
-  width: 14em;
-  background-color: var(--color-white);
-  color: var(--color-black);
+  width: auto;
+  background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+  color: var(--color-white);
   border-radius: 1.5em;
-  padding: 0 1em;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: ${fadeIn} 1s ease-in-out both;
+  
   @media only screen and (max-width: 768px) {
-    width: auto;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 1em;
+    padding: 0 1em;
   }
 `
 

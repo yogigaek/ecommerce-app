@@ -116,7 +116,7 @@ const Checkout = () => {
           </Counter>
         </Cards>
 		{
-		!selectedAddress ? <Span>Address is required</Span> : 
+		!selectedAddress ? <Span>Your Address is not Filled</Span> : 
         <Button
           onClick={handleCreateOrder}
           disabled={status === statusList.process}

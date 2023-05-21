@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
 	align-items: center;
 	width: 100%;
 	height: 100vh;
-	background-image: url(../../../assets/bg-texture.png)
+	background-image: url(../../../assets/bg-texture.png);
 	background: var(--color-bg); 
 `
 export const Container = styled.form`
@@ -37,15 +37,9 @@ export const FieldWrapper = styled.div`
 
 export const Icon = styled.span`
   position: absolute;
-  margin-left: 10em;
-  top: calc(50% - 0em);
-  cursor: pointer;
-`;
-
-export const Icon1 = styled.span`
-  position: absolute;
-  margin-left: 10em;
-  top: calc(61% - 0em);
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 `;
 

@@ -32,19 +32,10 @@ export const FieldWrapper = styled.div`
 
 export const Icon = styled.span`
   position: absolute;
-  margin-left: 10em;
-  top: calc(50% - 0em);
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
-
-  @media screen and (max-width: 450px) {
-    margin-left: 11em;
-	top: calc(60.5% - 0em);
-  }
-
-  /* @media screen and (max-width: 1000px) {
-    margin-left: 11em;
-	top: calc(57% - 0em);
-  } */
 `;
 
 export const Field = styled.input`

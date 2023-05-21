@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../app/api/auth';
 import { userLogin } from '../../../app/features/Auth/actions';
 import { useNavigate } from 'react-router-dom';
-import { Wrapper, Icon, Container, Title, Field, Feedback, Button, Text, TextLink } from './styled';
+import { Wrapper, Icon, Container, Title, Field, Feedback, Button, Text, TextLink, FieldWrapper } from './styled';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 
@@ -39,16 +39,25 @@ const Login = () => {
 
   const onSubmit = async (formData) => {
     setStatus(statusList.process);
-    const { data } = await loginUser(formData);
-    if (data.error) {
-      setError('password', { type: 'invalidCredential', message: data.message });
+    try {
+      const { data } = await loginUser(formData);
+      console.log(data);
+      if (data.error) {
+        setError('password', { type: 'invalidCredential', message: data.message });
+        setError('email', { type: 'invalidCredential', message: data.message });
+        setStatus(statusList.error);
+      } else {
+        const user = data.data;
+        const token = data.signed;
+        dispatch(userLogin({ user, token }));
+        setStatus(statusList.success);
+        navigate('/');
+      }
+    } catch (error) {
+      console.error(error);
+      setError('password', { type: 'server', message: "Server error" });
+      setError('email', { type: 'server', message: "Server error" });
       setStatus(statusList.error);
-    } else {
-      const user = data.data;
-      const token = data.signed;
-      dispatch(userLogin({ user, token }));
-      setStatus(statusList.success);
-      navigate('/');
     }
   };
 
@@ -68,7 +77,8 @@ const Login = () => {
         />
         <Feedback>{(errors.email && errors.email.message) || (status === statusList.error && 'Email atau password salah')}</Feedback>
 
-        <Field
+        <FieldWrapper>
+          <Field
             type={showPassword ? 'text' : 'password'}
             placeholder='Password'
             isInvalid={errors.password || (status === statusList.error)}
@@ -77,6 +87,7 @@ const Login = () => {
           <Icon onClick={toggleShowPassword}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </Icon>
+        </FieldWrapper>
         
         <Feedback>{(errors.password && errors.password.message) || (status === statusList.error && 'Email atau password salah')}</Feedback>
         <Button type='submit' disabled={status === statusList.process}>
